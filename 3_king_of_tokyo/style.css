@@ -20,12 +20,86 @@ body{
 }
 
 .rollButton{
-    height: 50px;
-    width: 150px;
+    height: 5%;
+    width: 10%;
     top: 50%;
     left: 20%;
     position: absolute;
     border-radius: 20%;
     background-color: crimson;
-    font-size: 25px;
+    font-size: 1vw;
+}
+
+.playerOne{
+    height: 25%;
+    width: 25%;
+    background-color: cornflowerblue;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    text-align: center;
+}
+
+.playerTwo{
+    height: 25%;
+    width: 25%;
+    background-color: cornflowerblue;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    text-align: center;
+}
+
+.playerThree{
+    height: 25%;
+    width: 25%;
+    background-color: cornflowerblue;
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    text-align: center;
+}
+
+.playerFour{
+    height: 25%;
+    width: 25%;
+    background-color: cornflowerblue;
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    text-align: center;
+}
+
+.cityPlayer{
+    height: 25%;
+    width: 13%;
+    background-color: skyblue;
+    position: absolute;
+    left: 3.3%;
+    top: 24.45%;
+    text-align: center;
+    border-radius: 50%;
+    opacity: 0.5;
+    font-size: 1vw;
+    line-height: 900%;
+    font-weight: bold;
+    /* display: none; */
+}
+
+.cityCover{
+    height: 25%;
+    width: 13%;
+    background-color: black;
+    position: absolute;
+    left: 31.2%;
+    bottom: 8.7%;
+    text-align: center;
+    border-radius: 50%;
+    opacity: 0.9;
+    text-align: center;
+    color: cornsilk;
+    font-size: 1vw;
+    line-height: 1100%;
+    font-weight: bold;
+    /* display: none; */
 }

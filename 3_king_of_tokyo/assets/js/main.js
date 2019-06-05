@@ -1,9 +1,13 @@
 $(document).ready(function () {
-    initializeGame
+    initializeGame()
 });
 
 function initializeGame() {
 
-    var startGame = new Game()
+    var startGame = new Game();
+
+    debugger;
+
+    console.log(startGame.roll())
 
 }

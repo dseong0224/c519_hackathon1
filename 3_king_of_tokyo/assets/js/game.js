@@ -5,9 +5,10 @@ class Game {
         this.diceRoll = new Dice()
     }
 
-
-    this.diceRoll.roll()
-
+    roll() {
+        var diceRollResult = this.diceRoll.roll()
+        console.log(diceRollResult)
+    }
 
 
 }

@@ -15,7 +15,7 @@ class Player {
         /* changes position this.position to 'out */
     }
 
-    playerAction(/* result of dive roll */){
+    playerAction(/* result of dive roll */) {
 
         // checks if result equals two matching numbers
         //
@@ -28,63 +28,63 @@ class Player {
         //
 
 
-        this.diceValue1 =
-        this.diceValue2 =
-
-
-
-        if(typeof this.diceValue1 === 'number'){
-            this.addHealth()
-        }
-        if(typeof this.diceValue2 === 'number'){
-            this.health
-        }
+        //     this.diceValue1 =
+        //     this.diceValue2 =
         //
-        // if claw --> attack()
-
-
+        //
+        //
+        //     if(typeof this.diceValue1 === 'number'){
+        //         this.addHealth()
+        //     }
+        //     if(typeof this.diceValue2 === 'number'){
+        //         this.health
+        //     }
+        //     //
+        //     // if claw --> attack()
+        //
+        //
+        // }
+        //
+        // addHealth(heartAmount) {
+        //     //add health from heart
+        //
+        //
+        //     if(heartAmount > 0 && typeof heartAmount === 'number') {
+        //         this.health = this.health + heartAmount;
+        //         return this.health;
+        //     } else {
+        //         return false;
+        //     }
+        //
+        // }
+        //
+        // removeHealth(clawAmount) {
+        //
+        //     if(clawAmount > 0 && typeof clawAmount === 'number'){
+        //         if(clawAmount > this.health){
+        //             clawAmount = this.health;
+        //             this.health = this.health - clawAmount;
+        //             return this.health;
+        //         } else {
+        //             this.health = this.health-clawAmount;
+        //             return this.health;
+        //         }
+        //     } else {
+        //         return false
+        //     }
+        //
+        // }
+        //
+        // getHealth() {
+        //
+        // }
+        //
+        // addPoint(){
+        //
+        // }
+        //
+        // getPoint(){
+        //
+        // }
     }
-
-    addHealth(heartAmount) {
-        //add health from heart
-
-
-        if(heartAmount > 0 && typeof heartAmount === 'number') {
-            this.health = this.health + heartAmount;
-            return this.health;
-        } else {
-            return false;
-        }
-
-    }
-
-    removeHealth(clawAmount) {
-
-        if(clawAmount > 0 && typeof clawAmount === 'number'){
-            if(clawAmount > this.health){
-                clawAmount = this.health;
-                this.health = this.health - clawAmount;
-                return this.health;
-            } else {
-                this.health = this.health-clawAmount;
-                return this.health;
-            }
-        } else {
-            return false
-        }
-
-    }
-
-    getHealth() {
-
-    }
-
-    addPoint(){
-
-    }
-
-    getPoint(){
-
-    }
-
 }

@@ -6,6 +6,9 @@ class Dice {
         //create random number generator to pick from array 
         this.playerRoll1 = this.outcomeArray[Math.floor(Math.random()*this.outcomeArray.length)];   //create roll for roll1 
         this.playerRoll2 = this.outcomeArray[Math.floor(Math.random()*this.outcomeArray.length)];   //create roll for roll2 
-        return this.playerRoll1, this.playerRoll2;  //return both roll values 
+        return this.playerRoll1, this.playerRoll2;  //return both roll values
+    }
+    getValue(){
+        this.roll()
     }
 }

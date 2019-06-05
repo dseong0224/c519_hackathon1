@@ -4,6 +4,8 @@ class Player {
         this.points = null;
         this.health = 10;
         this.position = 'out';
+        this.diceValue1 = null;
+        this.diceValue2 = null;
     }
 
     enter() {
@@ -14,25 +16,38 @@ class Player {
     }
 
     playerAction(/* result of dive roll */){
-        /*
-        checks if result equals two matching numbers
 
-        if typeof value1 === 'number' and value2 === 'number'
-        --> this.addPoint(value1)
+        // checks if result equals two matching numbers
+        //
+        // if typeof value1 === 'number' and value2 === 'number'
+        // --> this.addPoint(value1)
+        //
+        //
+        // if not two matching numbers
+        // check if indexOf(heart or claw)
+        //
 
 
-        if not two matching numbers
-        check if indexOf(heart or claw)
+        this.diceValue1 =
+        this.diceValue2 =
 
-        if heart --> addHealth()
 
-        if claw --> attack()
 
-         */
+        if(typeof this.diceValue1 === 'number'){
+            this.addHealth()
+        }
+        if(typeof this.diceValue2 === 'number'){
+            this.health
+        }
+        //
+        // if claw --> attack()
+
+
     }
 
     addHealth(heartAmount) {
-        //removes health from heart
+        //add health from heart
+
 
         if(heartAmount > 0 && typeof heartAmount === 'number') {
             this.health = this.health + heartAmount;

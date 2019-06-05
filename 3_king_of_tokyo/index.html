@@ -9,9 +9,15 @@
     <title>King of Tokyo</title>
 </head>
 <body>
-    <div class="gameBoard">
-        <div class="cityClass">
-            <button id="rollButton" class="rollButton">Click to Roll!</button>
+    <div class="gameBoardWindow">
+        <div id="playerOne" class="playerOne">P1</div>
+        <div id="playerTwo" class="playerTwo">P2</div>
+        <div id="playerThree" class="playerThree">P3</div>
+        <div id="playerFour" class="playerFour">P4</div>
+        <div class="gameBoard">
+            <button id="rollButton" class="rollButton" onclick="console.log('roll button clicked')">Click to Roll!</button>
+            <div id="cityPlayer" class="cityPlayer">City Player</div>
+            <div id="cityCover" class="cityCover">Requires Expansion</div>
         </div>
     </div>
 

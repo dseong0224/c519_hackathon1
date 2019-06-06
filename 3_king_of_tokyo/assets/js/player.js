@@ -1,11 +1,13 @@
 class Player {
-    constructor() {
+    constructor(callback) {
         this.name = null;
         this.points = null;
         this.health = 10;
         this.position = 'out';
-        this.diceValue1 = null;
-        this.diceValue2 = null;
+        this.diceValue1 = [];
+        this.diceValue2 = [];
+        this.callback = callback;
+        $('#rollButton').on('click',this.callback)
     }
 
     enter() {
@@ -28,63 +30,62 @@ class Player {
         //
 
 
-        //     this.diceValue1 =
-        //     this.diceValue2 =
-        //
-        //
-        //
-        //     if(typeof this.diceValue1 === 'number'){
-        //         this.addHealth()
-        //     }
-        //     if(typeof this.diceValue2 === 'number'){
-        //         this.health
-        //     }
-        //     //
-        //     // if claw --> attack()
-        //
-        //
-        // }
-        //
-        // addHealth(heartAmount) {
-        //     //add health from heart
-        //
-        //
-        //     if(heartAmount > 0 && typeof heartAmount === 'number') {
-        //         this.health = this.health + heartAmount;
-        //         return this.health;
-        //     } else {
-        //         return false;
-        //     }
-        //
-        // }
-        //
-        // removeHealth(clawAmount) {
-        //
-        //     if(clawAmount > 0 && typeof clawAmount === 'number'){
-        //         if(clawAmount > this.health){
-        //             clawAmount = this.health;
-        //             this.health = this.health - clawAmount;
-        //             return this.health;
-        //         } else {
-        //             this.health = this.health-clawAmount;
-        //             return this.health;
-        //         }
-        //     } else {
-        //         return false
-        //     }
-        //
-        // }
-        //
-        // getHealth() {
-        //
-        // }
-        //
-        // addPoint(){
-        //
-        // }
-        //
-        // getPoint(){
-        //
-        // }
+            this.diceValue1 = diceRollResult[0];
+            this.diceValue2 = diceRollResult[1];
+
+
+
+            if(typeof this.diceValue1 === 'number'){
+                this.addPoint()
+            }
+            if(typeof this.diceValue2 === 'number'){
+                this.addPoint()
+            }
+            //
+            // if claw --> attack()
+
+
+        }
+
+        addHealth(heartAmount) {
+            //add health from heart
+
+
+            if(heartAmount > 0 && typeof heartAmount === 'number') {
+                this.health = this.health + heartAmount;
+                return this.health;
+            } else {
+                return false;
+            }
+
+        }
+
+        removeHealth(clawAmount) {
+
+            if(clawAmount > 0 && typeof clawAmount === 'number'){
+                if(clawAmount > this.health){
+                    clawAmount = this.health;
+                    this.health = this.health - clawAmount;
+                    return this.health;
+                } else {
+                    this.health = this.health-clawAmount;
+                    return this.health;
+                }
+            } else {
+                return false
+            }
+
+        }
+
+        getHealth() {
+
+        }
+
+        addPoint(){
+
+        }
+
+        getPoint(){
+
+        }
     }
-}

@@ -1,30 +1,61 @@
 class Game {
     constructor () {
-        this.getDiceInfo = this.getDiceInfo.bind(this);
-
-        this.player1 = new Player(this.getDiceInfo);
-        this.player2 = new Player(this.getDiceInfo);
-        this.diceRoll = new Dice();
-
-
-        this.diceValue1 = null;
-        this.diceValue2 = null;
+        this.getPoints = this.getPoints.bind(this);
         this.roll = this.roll.bind(this);
+        // this.getHealth = this.getHealth.bind(this);
+
+        this.player1 = new Player(this.roll); // makes player
+
+        this.diceRoll = new Dice(); //rolls a dice
+
 
     }
 
     roll() {
-        var diceRollResult = this.diceRoll.roll();
-        console.log('Dice roll result:', diceRollResult);
+        this.diceValue1 = this.diceRoll.roll();
+        console.log('Dice roll result:', this.diceValue1);
 
-        this.diceValue1 = diceRollResult[0];
-        this.diceValue2 = diceRollResult[1];
+        // this.diceValue1 = this.diceRoll.roll();
 
-        this.diceRoll.pickedDice = [];
+        if(typeof this.diceValue1 === 'number'){
+            this.getPoints();
+        }
+        //else {
+        //     this.getHealth()
+        // }
+
     }
 
-    getDiceInfo(){
-        console.log(this.diceValue1, this.diceValue2)
+    // getHealth () {
+    //     console.log('current die:',this.diceValue1);
+    //
+    //     if(this.diceValue1 === 'heart') {
+    //         this.player1.addHealth(1);
+    //     }
+    //
+    //     console.log('current health', this.player1.accumulatedHealth())
+    //
+    // }
+
+    getPoints () {
+        // console.log('current die:',this.diceValue1);
+
+        // this.roll();
+            this.player1.addPoint(this.diceValue1);
+            console.log("current points", this.player1.accumulatedPoints());
+
+        if(this.player1.accumulatedPoints() >= 20){
+            this.winCondition()
+        }
+    }
+
+    loseCondition (){
+        alert ('You lost')
+    }
+
+
+    winCondition(){
+        alert ('You won!')
     }
 
 

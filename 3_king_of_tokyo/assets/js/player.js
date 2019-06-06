@@ -21,7 +21,7 @@ class Player {
 
     addHealth(hearts) {
         this.health += hearts;
-        // console.log('hearts added', hearts)
+        console.log('hearts added', hearts)
     }
 
     accumulatedHealth() {

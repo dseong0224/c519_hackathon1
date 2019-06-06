@@ -1,7 +1,7 @@
 class Dice {
     constructor(){
-        this.outcomeArray = [1,2,3]; //set array for possible player outcomes
-        this.pickedDice = [];
+        this.outcomeArray = [1,2,3,'heart']; //set array for possible player outcomes
+
     }
     roll(){
         //create random number generator to pick from array
@@ -10,5 +10,6 @@ class Dice {
         var randomValue = shuffledArray[Math.floor(Math.random()*shuffledArray.length)];
 
         return randomValue;
+
     }
 }

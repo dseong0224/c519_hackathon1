@@ -4,29 +4,28 @@ class Player {
         this.points = 0;
         this.health = 10;
         this.callback = callback;
-        $('#rollButton').on('click',this.callback);
+        $('#rollButton').on('click', this.callback);
         this.addPoint = this.addPoint.bind(this);
         this.addHealth = this.addHealth.bind(this);
     }
 
 
-    addPoint(points){
+    addPoint(points) {
         this.points += points;
         // console.log('points added',points)
     }
 
-    accumulatedPoints(){
+    accumulatedPoints() {
         return this.points
     }
 
-    addHealth (hearts){
+    addHealth(hearts) {
         this.health += hearts;
         // console.log('hearts added', hearts)
     }
 
-    accumulatedHealth(){
+    accumulatedHealth() {
         return this.health
     }
-
 
 }

@@ -2,8 +2,10 @@ $(document).ready(function () {
     initializeGame()
 });
 
+var startGame;
+
 function initializeGame() {
 
-    var startGame = new Game();
+    startGame = new Game();
 
 }

@@ -42,12 +42,12 @@ body{
 
 /*.playerTwo{*/
 /*    background-image: url("assets/images/KOT-CyberKitty.png");*/
-/*    height: 45%;*/
-/*    width: 45%;*/
+/*    height: 50%;*/
+/*    width: 50%;*/
 /*    background-color: transparent;*/
 /*    float: right;*/
 /*    background-repeat: no-repeat;*/
-/*    background-size: cover;*/
+/*    background-size: contain;*/
 /*    position: relative;*/
 /*    top: 50%;*/
 /*}*/

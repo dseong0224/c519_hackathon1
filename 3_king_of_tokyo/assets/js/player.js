@@ -12,7 +12,7 @@ class Player {
 
     addPoint(points){
         this.points += points;
-        console.log('points added',points)
+        // console.log('points added',points)
     }
 
     accumulatedPoints(){
@@ -21,7 +21,7 @@ class Player {
 
     addHealth (hearts){
         this.health += hearts;
-        console.log('hearts added', hearts)
+        // console.log('hearts added', hearts)
     }
 
     accumulatedHealth(){

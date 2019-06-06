@@ -51,6 +51,7 @@ class Player {
             //add health from heart
 
 
+
             if(heartAmount > 0 && typeof heartAmount === 'number') {
                 this.health = this.health + heartAmount;
                 return this.health;
@@ -61,6 +62,7 @@ class Player {
         }
 
         removeHealth(clawAmount) {
+
 
             if(clawAmount > 0 && typeof clawAmount === 'number'){
                 if(clawAmount > this.health){
@@ -74,7 +76,6 @@ class Player {
             } else {
                 return false
             }
-
         }
 
         getHealth() {
@@ -89,3 +90,4 @@ class Player {
 
         }
     }
+

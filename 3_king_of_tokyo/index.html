@@ -5,26 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
     <script src="./assets/js/dice.js"></script>
     <script src="./assets/js/player.js"></script>
     <script src="./assets/js/game.js"></script>
+
     <script src="./assets/js/main.js"></script>
+
+    <script src="./assets/js/animation.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>King of Tokyo</title>
 </head>
 <body>
+<div id="drop" class="tokyo">TOKYO
+<div class="tokyoSpace"></div>
+</div>
+<div id="playerContainer1" class="playerContainer">
+    <div id="playerOne" class="player gigazaur">
+        <div id="statsOne" class="stats playerOne">Player 1 Stats
+        <div class="pointsOne statsValue">Victory Points</div>
+        <div class="healthOne statsValue">Health Points</div>
+    </div>
+    </div>
+</div>
+<div id="playerContainer2" class="playerContainer">
+    <div id="playerTwo" class="player cyberkitty">
+        <div id="statsTwo" class="stats playerTwo">Player 2 Stats
+        <div class="pointsTwo statsValue">Victory Points</div>
+        <div class="healthTwo statsValue">Health Points</div>
+        </div>
+    </div>
+</div>
 
-    <div id="playerOne" class="playerOne">P1</div>
-    <div id="stats" class="stats">Player 1 Stats
-        <div class="points">Victory Points</div>
-        <div class="health">Health Points</div>
+
+
+
+
+
+
+<div class="scene">
+    <button id="rollButton" class="rollButton">Roll!</button>
+    <div class="cube">
+        <div class="cube__face cube__face--front">front</div>
+        <div class="cube__face cube__face--back">back</div>
+        <div class="cube__face cube__face--right">right</div>
+        <div class="cube__face cube__face--left">left</div>
+        <div class="cube__face cube__face--top">top</div>
+        <div class="cube__face cube__face--bottom">bottom</div>
     </div>
-    <div id="stats" class="stats2">Player 2 Stats
-        <div class="points2">Victory Points</div>
-        <div class="health2">Health Points</div>
-    </div>
-    <div id="playerTwo" class="playerTwo">P2</div>
-    <button id="rollButton" class="rollButton">Click to Roll!</button>
+</div>
+
+
+
 
 </body>
 </html>

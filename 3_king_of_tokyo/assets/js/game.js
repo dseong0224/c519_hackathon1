@@ -12,6 +12,7 @@ class Game {
         this.diceRoll = new Dice(); //rolls a dice
     }
 
+
     roll() {
         //Obtains the value of the dice roll
             //Sends the action/value of the dice roll to their respective functions
@@ -49,10 +50,9 @@ class Game {
             this.players[this.otherPlayers].removeHealth(1);  
         }
 
-        $('.health').text("Health Points: " + this.players[0].accumulatedHealth());
-        $('.health2').text("Health Points: " + this.players[1].accumulatedHealth());
+        $('.healthOne').text("Health Points: " + this.players[0].accumulatedHealth());
+        $('.healthTwo').text("Health Points: " + this.players[1].accumulatedHealth());
 
-        debugger;
         if(this.players[this.otherPlayers].accumulatedHealth() <= 0){
             this.loseCondition();
         }
@@ -62,8 +62,8 @@ class Game {
         //Updates points for all players and checks for a winning player
             this.players[this.currentPlayer].addPoint(this.diceValue1);
 
-            $('.points').text("Victory Points: " + this.players[0].accumulatedPoints());
-            $('.points2').text("Victory Points: " + this.players[1].accumulatedPoints());
+            $('.pointsOne').text("Victory Points: " + this.players[0].accumulatedPoints());
+            $('.pointsTwo').text("Victory Points: " + this.players[1].accumulatedPoints());
 
         if(this.players[this.currentPlayer].accumulatedPoints() >= 20){
             this.winCondition()
@@ -81,4 +81,33 @@ class Game {
         alert (this.players[this.currentPlayer].name + ' won!' + '  Created by David Rabosky, Dan Seong, Steve Min');
     }
 
+
+
+
+
 }
+
+$( function() {
+    $("#playerContainer1").draggable();
+    $("#playerContainer2").draggable();
+
+    $("#drop").droppable(
+        {
+            drop :function()
+            {
+                alert("Player is in Tokyo");
+            }
+        } );
+} );
+
+$( function() {
+    $("#rollButton").draggable();
+
+    $('body').droppable(
+        {
+        //     drop :function()
+        //     {
+        //         alert("dice rolled");
+        //     }
+        } );
+} );

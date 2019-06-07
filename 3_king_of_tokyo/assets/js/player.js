@@ -13,7 +13,6 @@ class Player {
     //add to current player points
     addPoint(points) {
         this.points += points;
-        // console.log('points added',points)
     }
     //current player victory point
     accumulatedPoints() {
@@ -29,7 +28,7 @@ class Player {
         this.health -= hearts; 
         console.log('hearts removed: ' , hearts);  
     }
-
+    //current player health
     accumulatedHealth() {
         return this.health
     }

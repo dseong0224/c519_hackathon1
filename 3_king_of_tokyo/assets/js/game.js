@@ -6,23 +6,18 @@ class Game {
         this.roll = this.roll.bind(this);
         $('#rollButton').on('click', this.roll);
 
-        // this.player1 = new Player(this.roll);
         this.players = [new Player("Player1",this.roll), new Player("Player2",this.roll)];
         this.currentPlayer = 0;
-        this.otherPlayers = !0
+        this.otherPlayers = 1;
         this.diceRoll = new Dice(); //rolls a dice
     }
 
     roll() {
+        //Obtains the value of the dice roll
+            //Sends the action/value of the dice roll to their respective functions
         
-        if (this.currentPlayer === this.players.length) {
-            this.currentPlayer = 0;
-        }
         this.diceValue1 = this.diceRoll.roll();
-        console.log('Dice roll result:', this.diceValue1);//Player 2
-
-        // this.diceValue1 = this.diceRoll.roll();
-
+        
         if(typeof this.diceValue1 === 'number'){
             this.getPoints();
         }
@@ -33,41 +28,42 @@ class Game {
         else {
             this.getHealth()
         }
-        this.currentPlayer++;
+        // this.currentPlayer++;
+        // this.otherPlayers++;
+        // if (this.currentPlayer === this.players.length) {
+        //     this.currentPlayer = 0;
+        // }
+        // if (this.otherPlayers === this.players.length) {
+        //     this.otherPlayers = 0;
+        // }
+
+        this.currentPlayer = 1 - this.currentPlayer;
+        this.otherPlayers = 1 - this.otherPlayers;
     }
 
-    // attack(player) {
-    //     // this.player
-    //     if(this.diceValue1 === 'claw') {
-    //         this.players[1].removeHealth(1);
-    //         // this.players[this.currentPlayer].removeHealth(1)
-    //     }
-    // }
-
     getHealth () {
-        // console.log('current die:',this.diceValue1);
-
-        // if(this.diceValue1 === 'heart') {
-        //     this.player1.addHealth(1);
-        // }
+        //Modifies health after rolling a heart or a claw
         if(this.diceValue1 === 'heart') {
             this.players[this.currentPlayer].addHealth(1);
         } else if(this.diceValue1 === 'claw') {
             this.players[this.otherPlayers].removeHealth(1);  
         }
-        console.log("Player:", this.players[this.currentPlayer])
 
-        console.log('current health', this.players[this.currentPlayer].accumulatedHealth())
-        $('.health').append(this.players[this.currentPlayer].accumulatedHealth());
+        $('.health').text("Health Points: " + this.players[0].accumulatedHealth());
+        $('.health2').text("Health Points: " + this.players[1].accumulatedHealth());
+
+        debugger;
+        if(this.players[this.otherPlayers].accumulatedHealth() <= 0){
+            this.loseCondition();
+        }
     }
 
     getPoints () {
-        // console.log('current die:',this.diceValue1);
-
-        // this.roll();
+        //Updates points for all players and checks for a winning player
             this.players[this.currentPlayer].addPoint(this.diceValue1);
-            console.log("current points", this.players[this.currentPlayer].accumulatedPoints());
-            $('.points').append(this.players[this.currentPlayer].accumulatedPoints());
+
+            $('.points').text("Victory Points: " + this.players[0].accumulatedPoints());
+            $('.points2').text("Victory Points: " + this.players[1].accumulatedPoints());
 
         if(this.players[this.currentPlayer].accumulatedPoints() >= 20){
             this.winCondition()
@@ -75,13 +71,14 @@ class Game {
     }
     
     loseCondition (){
-        // heart = 0
-        alert ('You lost')
+        //Alerts when a player wins by eliminating all other players
+        alert (this.players[this.otherPlayers].name + ' won!' + '  Created by David Rabosky, Dan Seong, Steve Min');
     }
 
 
     winCondition(){
-        alert (this.players[this.currentPlayer].name + ' won!')
+        //Alerts when a player wins
+        alert (this.players[this.currentPlayer].name + ' won!' + '  Created by David Rabosky, Dan Seong, Steve Min');
     }
 
 }

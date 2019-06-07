@@ -5,7 +5,7 @@ $(document).ready(function () {
 var startGame;
 
 function initializeGame() {
-
+    //Initiates the game
     startGame = new Game();
 
 }

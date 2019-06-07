@@ -1,6 +1,6 @@
 class Dice {
     constructor(){
-        this.outcomeArray = [1,2,3,'heart','claw']; //set array for possible player outcomes
+        this.outcomeArray = [1,2,3,'heart','claw', 'claw', 'claw', 'heart']; //set array for possible player outcomes
 
     }
     roll(){

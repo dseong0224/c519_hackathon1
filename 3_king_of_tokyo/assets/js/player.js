@@ -5,7 +5,9 @@ class Player {
         this.health = 10;
         this.addPoint = this.addPoint.bind(this);
         this.addHealth = this.addHealth.bind(this);
+
     }
+
     //attack other player 
     attack(damagedPlayer){
         damagedPlayer.removeHealth()

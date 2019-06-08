@@ -121,27 +121,38 @@ body{
 .cube__face--front  { 
     transform: rotateY(  0deg) translateZ(10vh); 
     background-image: url("./assets/images/KOT_die_claw.png");
-    background-size: cover;     
+    background-size: 130%;
+    background-position: 50%;
 }
 .cube__face--right  { 
     transform: rotateY( 90deg) translateZ(10vh);
     background-image: url("./assets/images/KOT_die_heart.png");
+    background-size: 130%;
+    background-position: 50%;
 }
 .cube__face--back   {
     transform: rotateY(180deg) translateZ(10vh);
     background-image: url("./assets/images/KOT_die_claw.png");
+    background-size: 130%;
+    background-position: 50%;
  }
 .cube__face--left   {
     transform: rotateY(-90deg) translateZ(10vh); 
     background-image: url("./assets/images/KOT_die_one.png");
+    background-size: 130%;
+    background-position: 50%;
 }
 .cube__face--top    { 
     transform: rotateX( 90deg) translateZ(10vh);
     background-image: url("./assets/images/KOT_die_two.png");
+    background-size: 130%;
+    background-position: 50%;
 }
 .cube__face--bottom {
     transform: rotateX(-90deg) translateZ(10vh);
     background-image: url("./assets/images/KOT_die_three.png");
+    background-size: 130%;
+    background-position: 50%;
 }
 
 

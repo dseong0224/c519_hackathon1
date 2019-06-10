@@ -1,11 +1,12 @@
 $(document).ready(function () {
     initializeGame()
+    $('.playerContainer').draggable();
+    $("#rollButton").draggable();
+    $(".scene").draggable();
 });
 
-var startGame;
+var newGame;
 
 function initializeGame() {
-    //Initiates the game
-    startGame = new Game();
-
+    newGame = new Game();
 }

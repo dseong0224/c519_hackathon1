@@ -1,80 +1,173 @@
 body{
-    background-color: black;
-    background-image: url("assets/images/king_of_tokyo_background.jpg");
-    height: 100vh;
+    background-image: url("assets/images/nightsky.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: black;
+    height: 100vh;
     position: relative;
 }
+.gameTitle{
+    background-image: url("assets/images/king_of_tokyo_logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    height: 20%;
+    width: 25%;
+}
 
+#gameBoard {
+    background-image: url("assets/images/earth.png");
+    background-position: center;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.displayAction {
+    top: 10%;
+    border: white 3px solid;
+    background-color: black;
+    text-align: center;
+    font-size: 7rem;
+    font-family: fantasy;
+    color: white;
+    height: 10%;
+    width: 50%;
+    border-radius: 50%;
+    margin: auto;
+    position: relative;
+}
 .stats {
     text-align: center;
     color: white;
-    top: 20%;
+    top: 100%;
     font-size: 3vh;
-    float: left;
     font-family: fantasy;
-    height: 20%;
-    width: 30%;
-    background-color: black;
+    height: 45%;
+    width: 100%;
+    background-color: darkslategrey;
+    background-repeat: no-repeat;
     border: black;
     position: relative;
-    opacity: 0.7;
-    border-radius: 10%;
+    border-radius: 35%;
 }
 
-.stats2 {
-    text-align: center;
-    color: white;
-    top: 20%;
-    font-size: 3vh;
-    float: right;
-    font-family: fantasy;
-    height: 20%;
-    width: 30%;
-    background-color: black;
-    border: black;
-    position: relative;
-    opacity: 0.7;
-    border-radius: 10%;
+.statsValue {
+    font-size: 2vh;
 }
+
+.playerContainer {
+    height: 40%;
+    width: 20%;
+    background-color: transparent;
+    float: left;
+    border-radius: 15%;
+    position: relative;
+}
+
+.player{
+    height: 70%;
+    width: 100%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    z-index: 1;
+}
+
+.gigazaur {
+    background-image: url("assets/images/gigazaur.png");
+}
+
+.cyberkitty {
+    background-image: url("assets/images/KOT-CyberKitty.png");
+}
+
+.kingkong {
+    background-image: url("assets/images/kot-kingkong.png");
+}
+
+.alienoid {
+    background-image: url("assets/images/kot-alienoid.png");
+}
+
+
+
+#drop {
+    /*background-image: url("assets/images/speechbubble.png");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: contain;*/
+    /*background-position: center;*/
+    text-align: center;
+    font-family: fantasy;
+    font-size: 10rem;
+    font-weight: bold;
+    height: 30%;
+    width: 20%;
+    left: 60%;
+    top: 10%;
+    background-color: white;
+    border-radius: 30%;
+    border: black solid 15px;
+    background-image: url("assets/images/king_of_tokyo_background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
 
 .rollButton{
-    height: 20%;
-    width: 10%;
+    color: white;
+    height: 50%;
+    width: 50%;
     border-radius: 10%;
     background-color: transparent;
     font-size: 2vw;
-    float: left;
-    left: 15%;
-    top: 10%;
     z-index: 1;
+}
+
+.scene {
+    width: 20vh;
+    height: 20vh;
+    margin: auto;
+    top: -20%;
+    /*perspective: 60vh;*/
+}
+
+.cube {
+    width: 20vh;
+    height: 20vh;
     position: relative;
+    transform-style: preserve-3d;
 }
 
-.playerOne{
-    background-image: url("assets/images/gigazaur.png");
-    height: 50%;
-    width: 25%;
-    background-color: transparent;
-    float: left;
-    background-repeat: no-repeat;
-    background-size: contain;
+.cube__face {
     position: absolute;
-    top: 50%;
+    width: 20vh;
+    height: 20vh;
+    background-color: greenyellow;
+    border-radius: 10%;
+    border: black 2px solid;
+    text-align: center;
 }
 
 
-.playerTwo{
-   background-image: url("assets/images/KOT-CyberKitty.png");
-   height: 50%;
-   width: 25%;
-   background-color: transparent;
-   float: right;
-   background-repeat: no-repeat;
-    background-size: contain;
-   position: relative;
-   text-align: right;
-   top: 50%;
-   margin-right: -28%;
-}
+.cube__face--front  { transform: rotateY(  0deg) translateZ(10vh); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(10vh); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(10vh); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(10vh); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(10vh); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(10vh); }
+
+
+.cube { transform: translateZ(-10vh); }
+
+.cube.show-front  { transform: translateZ(-10vh) rotateY(   0deg); }
+.cube.show-right  { transform: translateZ(-10vh) rotateY( -90deg); }
+.cube.show-back   { transform: translateZ(-10vh) rotateY(-180deg); }
+.cube.show-left   { transform: translateZ(-10vh) rotateY(  90deg); }
+.cube.show-top    { transform: translateZ(-10vh) rotateX( -90deg); }
+.cube.show-bottom { transform: translateZ(-10vh) rotateX(  90deg); }
+
+.cube { transition: transform 1s; }

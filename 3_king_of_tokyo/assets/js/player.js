@@ -1,35 +1,27 @@
 class Player {
     constructor(name) {
         this.name = name;
-        this.points = 0;
+        this.point = 0;
         this.health = 10;
-        this.addPoint = this.addPoint.bind(this);
-        this.addHealth = this.addHealth.bind(this);
+        this.gainVP = this.gainVP.bind(this);
+        this.gainHP = this.gainHP.bind(this);
     }
-    //attack other player 
-    attack(damagedPlayer){
-        damagedPlayer.removeHealth()
+
+    gainVP(point) {
+        this.point += point;
     }
-    //add to current player points
-    addPoint(points) {
-        this.points += points;
+    totalVP() {
+        return this.point
     }
-    //current player victory point
-    accumulatedPoints() {
-        return this.points
+    gainHP(heart) {
+        this.health += heart;
+        console.log('heart added', heart)
     }
-    //add current player health
-    addHealth(hearts) {
-        this.health += hearts;
-        console.log('hearts added', hearts)
+    takeDamage(heart){
+        this.health -= heart;
+        console.log('heart removed: ' , heart);
     }
-    //remove current player heatlth 
-    removeHealth(hearts){
-        this.health -= hearts; 
-        console.log('hearts removed: ' , hearts);  
-    }
-    //current player health
-    accumulatedHealth() {
+    totalHP() {
         return this.health
     }
 

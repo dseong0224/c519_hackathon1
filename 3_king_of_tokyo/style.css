@@ -28,7 +28,7 @@ body{
     border: white 3px solid;
     background-color: black;
     text-align: center;
-    font-size: 7rem;
+    font-size: 4vh;
     font-family: fantasy;
     color: white;
     height: 10%;
@@ -36,6 +36,8 @@ body{
     border-radius: 50%;
     margin: auto;
     position: relative;
+    /* vertical-align: middle;
+    display: table-cell; */
 }
 .stats {
     text-align: center;
@@ -94,13 +96,9 @@ body{
 
 
 #drop {
-    /*background-image: url("assets/images/speechbubble.png");*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: contain;*/
-    /*background-position: center;*/
     text-align: center;
     font-family: fantasy;
-    font-size: 10rem;
+    font-size: 10vh;
     font-weight: bold;
     height: 30%;
     width: 20%;

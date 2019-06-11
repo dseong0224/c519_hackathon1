@@ -151,12 +151,36 @@ body{
 }
 
 
-.cube__face--front  { transform: rotateY(  0deg) translateZ(10vh); }
-.cube__face--right  { transform: rotateY( 90deg) translateZ(10vh); }
-.cube__face--back   { transform: rotateY(180deg) translateZ(10vh); }
-.cube__face--left   { transform: rotateY(-90deg) translateZ(10vh); }
-.cube__face--top    { transform: rotateX( 90deg) translateZ(10vh); }
-.cube__face--bottom { transform: rotateX(-90deg) translateZ(10vh); }
+.cube__face--front  { 
+    transform: rotateY(  0deg) translateZ(10vh); 
+    background-image: url('./assets/images/dice 1.png'); 
+    background-size: 100%;  
+}
+.cube__face--right  { 
+    transform: rotateY( 90deg) translateZ(10vh); 
+    background-image: url('./assets/images/dice 2.png');
+    background-size: 100%; 
+}
+.cube__face--back   { 
+    transform: rotateY(180deg) translateZ(10vh); 
+    background-image: url('./assets/images/dice 3.png');
+    background-size: 100%;
+}
+.cube__face--left   { 
+    transform: rotateY(-90deg) translateZ(10vh); 
+    background-image: url('./assets/images/dice heart.png');
+    background-size: 100%; 
+}
+.cube__face--top    { 
+    transform: rotateX( 90deg) translateZ(10vh); 
+    background-image: url('./assets/images/dice claw.png'); 
+    background-size: 100%;  
+}
+.cube__face--bottom { 
+    transform: rotateX(-90deg) translateZ(10vh); 
+    background-image: url('./assets/images/dice claw.png'); 
+    background-size: 100%;  
+}
 
 .cube { transform: translateZ(-10vh); }
 

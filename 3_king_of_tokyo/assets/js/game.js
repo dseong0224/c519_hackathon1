@@ -9,10 +9,7 @@ class Game {
         this.allPlayers = [new Player("player1"), new Player("player2"), new Player("player3"), new Player("player4")];
         this.currentPlayer = 0;
         this.otherPlayers = this.allPlayers.slice(this.currentPlayer,this.currentPlayer+1);
-        //check if the player is current player by looping through all player array index
-            //add all those other palyers to a temp array
-            //damage all players in the new array
-            //use slice and splice
+
         this.playerOne = 0;
         this.playerTwo = 1;
         this.playerThree = 2;
@@ -103,23 +100,23 @@ class Game {
             }
 
 
-            // if(this.currentPlayer === 0){
-            //     this.allPlayers[this.playerTwo].takeDamage(1);
-            //     this.allPlayers[this.playerThree].takeDamage(1);
-            //     this.allPlayers[this.playerFour].takeDamage(1);
-            // } else if(this.currentPlayer === 1){
-            //     this.allPlayers[this.playerOne].takeDamage(1);
-            //     this.allPlayers[this.playerThree].takeDamage(1);
-            //     this.allPlayers[this.playerFour].takeDamage(1);
-            // } else if(this.currentPlayer === 2){
-            //     this.allPlayers[this.playerOne].takeDamage(1);
-            //     this.allPlayers[this.playerTwo].takeDamage(1);
-            //     this.allPlayers[this.playerFour].takeDamage(1);
-            // } else if(this.currentPlayer === 3){
-            //     this.allPlayers[this.playerOne].takeDamage(1);
-            //     this.allPlayers[this.playerTwo].takeDamage(1);
-            //     this.allPlayers[this.playerThree].takeDamage(1);
-            // }
+            if(this.currentPlayer === 0){
+                this.allPlayers[this.playerTwo].takeDamage(1);
+                this.allPlayers[this.playerThree].takeDamage(1);
+                this.allPlayers[this.playerFour].takeDamage(1);
+            } else if(this.currentPlayer === 1){
+                this.allPlayers[this.playerOne].takeDamage(1);
+                this.allPlayers[this.playerThree].takeDamage(1);
+                this.allPlayers[this.playerFour].takeDamage(1);
+            } else if(this.currentPlayer === 2){
+                this.allPlayers[this.playerOne].takeDamage(1);
+                this.allPlayers[this.playerTwo].takeDamage(1);
+                this.allPlayers[this.playerFour].takeDamage(1);
+            } else if(this.currentPlayer === 3){
+                this.allPlayers[this.playerOne].takeDamage(1);
+                this.allPlayers[this.playerTwo].takeDamage(1);
+                this.allPlayers[this.playerThree].takeDamage(1);
+            }
 
 
         }

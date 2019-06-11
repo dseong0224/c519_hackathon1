@@ -168,3 +168,7 @@ body{
 .cube.show-bottom { transform: translateZ(-10vh) rotateX(  90deg); }
 
 .cube { transition: transform 1s; }
+
+.hidden{
+    display: none;
+}

@@ -2,188 +2,133 @@ class Game {
     constructor () {
         this.updateVP = this.updateVP.bind(this);
         this.updateHP = this.updateHP.bind(this);
+        this.playTurn = this.playTurn.bind(this);
 
-        this.rollDice = this.rollDice.bind(this);
-        $('#rollButton').on('click', this.rollDice);
+        $('#rollButton').on('click', this.playTurn);
 
-        this.allPlayers = [new Player("player1"), new Player("player2"), new Player("player3"), new Player("player4")];
+        this.allPlayers = [new Player("P1"), new Player("P2"), new Player("P3"), new Player("P4")];
         this.currentPlayer = 0;
-        this.otherPlayers = this.allPlayers.slice(this.currentPlayer,this.currentPlayer+1);
-
-        this.playerOne = 0;
-        this.playerTwo = 1;
-        this.playerThree = 2;
-        this.playerFour = 3;
-        this.newDice = new Dice();
+        this.otherPlayersArray = []
     }
+    playTurn() {
 
-    rollDice() {
-        if(this.allPlayers[this.currentPlayer].health <= 0){
-            this.currentPlayer = this.currentPlayer + 1 % 4;
-            this.rollDice();
-            return;
+        console.log(this.allPlayers);
+
+        if(this.allPlayers.length === 1){
+            this.winCondition(this.allPlayers[this.currentPlayer])
         }
 
 
+        $(".stats1").html("");
+        $(".stats2").html("");
 
-        this.rollResult = this.newDice.roll();
-        
-        if(typeof this.rollResult === 'number'){
-            this.updateVP();
-        }
-        else if(this.rollResult === "claw"){
-            this.updateHP()
-        }
-        
-        else {
-            this.updateHP()
-        }
-        this.displayAction(this.rollResult);
-        this.otherPlayers = this.allPlayers.slice(this.currentPlayer,this.currentPlayer+1);
+        this.allPlayers[this.currentPlayer].rollDice();
+
+        this.updateHP();
+
+        this.updateVP();
+
+        this.displayAction(this.allPlayers[this.currentPlayer].rollResult);
+
+        this.otherPlayersArray = [];
+
         this.currentPlayer++;
 
         if(this.currentPlayer === this.allPlayers.length){
             this.currentPlayer = 0;
         }
-        // this.playerTwo++;
-        // this.playerThree++;
-        // this.playerFour++;
-        // if (this.currentPlayer === this.allPlayers.length) {
-        //     this.currentPlayer = 0;
-        // }
-        // if (this.playerTwo === this.allPlayers.length) {
-        //     this.playerTwo = 0;
-        // }
-        // if (this.playerThree === this.allPlayers.length) {
-        //     this.playerThree = 0;
-        // }
-        // if (this.playerFour === this.allPlayers.length) {
-        //     this.playerFour = 0;
-        // }
     }
-
+    getOtherPlayers(currentPlayerIndex){
+        for(var i=0; i<this.allPlayers.length; i++) {
+            if (i !== currentPlayerIndex) {
+                this.otherPlayersArray.push(this.allPlayers[i])
+            }
+        }
+    }
     displayAction (action){
 
-        // var playerOne = this.allPlayers[this.currentPlayer];
-        
-        var currentPlayerSub = this.allPlayers[this.currentPlayer];
+        var currentPlayer = this.allPlayers[this.currentPlayer];
 
         switch (action) {
-            case 1: $('.displayAction').text(currentPlayerSub.name + ' + 1 VP');
+            case 1: $('.displayAction').text(currentPlayer.name + ' + 1 VP');
                 break;
 
-            case 2: $('.displayAction').text(currentPlayerSub.name + ' + 2 VP');
+            case 2: $('.displayAction').text(currentPlayer.name + ' + 2 VP');
                 break;
 
-            case 3: $('.displayAction').text(currentPlayerSub.name + ' + 3 VP');
+            case 3: $('.displayAction').text(currentPlayer.name + ' + 3 VP');
                 break;
 
-            case 'claw': $('.displayAction').text(currentPlayerSub.name + ' attacks everyone');
+            case 'claw': $('.displayAction').text(currentPlayer.name + ' attacks everyone');
                 break;
 
-            case 'heart': $('.displayAction').text(currentPlayerSub.name + ' + 1 HP');
+            case 'heart': $('.displayAction').text(currentPlayer.name + ' + 1 HP');
                 break;
         }
 
     }
 
     updateHP () {
-        if(this.rollResult === 'heart') {
-            this.allPlayers[this.currentPlayer].gainHP(1);
-            if(this.allPlayers[this.currentPlayer].totalHP() > 12){
-                return false
+
+        this.getOtherPlayers(this.currentPlayer);
+
+        if (this.allPlayers[this.currentPlayer].rollResult === 'claw') {
+            for (var i = 0; i < this.otherPlayersArray.length; i++) {
+                this.otherPlayersArray[i].takeDamage(1);
             }
-        } else if(this.rollResult === 'claw') {
-
-            for(var i=0; i<this.otherPlayers.length; i++){
-                this.otherPlayers[i].takeDamage(1);
-            }
-
-
-            if(this.currentPlayer === 0){
-                this.allPlayers[this.playerTwo].takeDamage(1);
-                this.allPlayers[this.playerThree].takeDamage(1);
-                this.allPlayers[this.playerFour].takeDamage(1);
-            } else if(this.currentPlayer === 1){
-                this.allPlayers[this.playerOne].takeDamage(1);
-                this.allPlayers[this.playerThree].takeDamage(1);
-                this.allPlayers[this.playerFour].takeDamage(1);
-            } else if(this.currentPlayer === 2){
-                this.allPlayers[this.playerOne].takeDamage(1);
-                this.allPlayers[this.playerTwo].takeDamage(1);
-                this.allPlayers[this.playerFour].takeDamage(1);
-            } else if(this.currentPlayer === 3){
-                this.allPlayers[this.playerOne].takeDamage(1);
-                this.allPlayers[this.playerTwo].takeDamage(1);
-                this.allPlayers[this.playerThree].takeDamage(1);
-            }
-
-
         }
 
+        for(var playerIndex = 0; playerIndex < this.allPlayers.length; playerIndex++){
 
+            this.allPlayers[playerIndex].getHPStats('.health' + playerIndex);
 
-        $('.healthOne').text("Health Points: " + this.allPlayers[this.playerOne].totalHP());
-        $('.healthTwo').text("Health Points: " + this.allPlayers[this.playerTwo].totalHP());
-        $('.healthThree').text("Health Points: " + this.allPlayers[this.playerThree].totalHP());
-        $('.healthFour').text("Health Points: " + this.allPlayers[this.playerFour].totalHP());
-        $('.pointsOne').text("Victory Points: " + this.allPlayers[this.playerOne].totalVP());
-        $('.pointsTwo').text("Victory Points: " + this.allPlayers[this.playerTwo].totalVP());
-        $('.pointsThree').text("Victory Points: " + this.allPlayers[this.playerThree].totalVP());
-        $('.pointsFour').text("Victory Points: " + this.allPlayers[this.playerFour].totalVP());
-
-        // for( var playerIndex in this.allPlayers){
-        //     if(this.allPlayers[playerIndex].totalHP() <= 0){
-        //         this.allPlayers.splice(playerIndex, 1)
-        //     }
-        // }
-
-        if(this.allPlayers[this.playerOne].totalHP() <= 0){
-            $("#playerContainer1").addClass("hidden");
-            console.log("player1 is dead");
-        } if(this.allPlayers[this.playerTwo].totalHP() <= 0){
-            $("#playerContainer2").addClass("hidden");
-            console.log("player2 is dead")
-        } if(this.allPlayers[this.playerThree].totalHP() <= 0){
-            $("#playerContainer3").addClass("hidden");
-            console.log("player3 is dead")
-        } if(this.allPlayers[this.playerFour].totalHP() <= 0){
-            $("#playerContainer4").addClass("hidden");
-            console.log("player4 is dead")
+            if(this.allPlayers[playerIndex].totalHP() <= 0){
+                this.removePlayer(this.allPlayers[playerIndex])
+            }
         }
+
     }
 
     updateVP () {
-        this.allPlayers[this.currentPlayer].gainVP(this.rollResult);
+        for(var playerIndex = 0; playerIndex < this.allPlayers.length; playerIndex++){
 
+            this.allPlayers[playerIndex].getVPStats('.points' + playerIndex)
+        }
 
-        $('.healthOne').text("Health Points: " + this.allPlayers[this.playerOne].totalHP());
-        $('.healthTwo').text("Health Points: " + this.allPlayers[this.playerTwo].totalHP());
-        $('.healthThree').text("Health Points: " + this.allPlayers[this.playerThree].totalHP());
-        $('.healthFour').text("Health Points: " + this.allPlayers[this.playerFour].totalHP());
-        $('.pointsOne').text("Victory Points: " + this.allPlayers[this.playerOne].totalVP());
-        $('.pointsTwo').text("Victory Points: " + this.allPlayers[this.playerTwo].totalVP());
-        $('.pointsThree').text("Victory Points: " + this.allPlayers[this.playerThree].totalVP());
-        $('.pointsFour').text("Victory Points: " + this.allPlayers[this.playerFour].totalVP());
-
-        if(this.allPlayers[this.currentPlayer].totalVP() >= 20){
-            this.winCondition()
+        if(this.allPlayers[this.currentPlayer].totalVP() >= 20) {
+            this.winCondition(this.allPlayers[this.currentPlayer])
         }
     }
-    
-    loseCondition(playerName){
-        // alert (playerName + ' lost!' + '  Created by David Rabosky, Dan Seong, Steve Min');
+
+
+    removePlayer(loser){
+        switch (loser) {
+            case this.allPlayers[0]: $('#playerContainer1').addClass('hidden');
+                break;
+            case this.allPlayers[1]: $('#playerContainer2').addClass('hidden');
+                break;
+            case this.allPlayers[2]: $('#playerContainer3').addClass('hidden');
+                break;
+            case this.allPlayers[3]: $('#playerContainer4').addClass('hidden');
+                break;
+        }
+
+        this.allPlayers.splice(loser, 1);
+        loser.lost();
+
+
     }
 
-
-    winCondition(){
-        alert (this.allPlayers[this.currentPlayer].name + ' won!' + '  Created by David Rabosky, Dan Seong, Steve Min');
+    winCondition(winner){
+        alert (winner.name + ' won!' + '  Created by David Rabosky, Dan Seong, Steve Min');
     }
 }
 
 $( function() {
     $("#playerContainer1").draggable();
     $("#playerContainer2").draggable();
+    $("#playerContainer3").draggable();
+    $("#playerContainer4").draggable();
 
     $("#drop").droppable(
         {
@@ -199,9 +144,6 @@ $( function() {
 
     $('body').droppable(
         {
-            //     drop :function()
-            //     {
-            //         alert("dice rolled");
-            //     }
+
         } );
 } );

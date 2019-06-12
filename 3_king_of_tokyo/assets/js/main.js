@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    initializeGame()
+    initializeGame();
     $('.playerContainer').draggable();
     $("#rollButton").draggable();
     $(".scene").draggable();
